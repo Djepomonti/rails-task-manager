@@ -1,12 +1,18 @@
+<div class="container">
 <h1>Edit task</h1>
-
+<div class="todo">
 <%= form_for(@task) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :details %>
-  <%= f.text_field :details %>
-  <%= f.check_box :completed %>
-  <%= f.label :completed %>
-  <%= f.submit %>
+ <div class="form"> <%= f.label :title %>
+  <%= f.text_field :title %></div>
+  <div class="form"><%= f.label :details %>
+  <%= f.text_field :details %></div>
+  <div class="check"><%= f.check_box :completed %>
+  <%= f.label :completed %></div>
+  <div class="sub"><%= f.submit %></div>
 <% end %>
-<%= link_to "Back to list", tasks_path %>
+</div>
+<hr>
+<%= link_to tasks_path do %>
+  <div class="bouton"><i class="fa fa-history"></i> <div class="btn">Back to list</div></div>
+<% end %>
+</div>

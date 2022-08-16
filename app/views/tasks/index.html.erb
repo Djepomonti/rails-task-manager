@@ -1,13 +1,27 @@
-<h1>Tasks</h1>
-
+<div class="container">
+<h1>Your Tasks</h1>
+<div class="todo">
 <ul>
   <% @tasks.each do |task| %>
   <li>
-    <%= check_box_tag 'activated[]', task.id %>
-    <%= link_to task.title, task_path(task) %>
-  </li>
-    <%= link_to "Delete", task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <% end %>
+  <div>
+  <% if task.completed %>
+        <i class="fa-regular fa-circle-check"></i>
+      <% else %>
+    <i class="fa-regular fa-circle"></i>
+      <% end %>
+
+    <%# <%= check_box_tag 'activated[]', task.id %>
+    <%= link_to task.title, task_path(task) %></div>
+    <div><%= link_to "Delete", task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <i class="fa-solid fa-trash" aria-hidden="true"></i></div>
+    </li>
+     <% end %>
 </ul>
+</div>
+
 <hr>
-<%= link_to "Add a new task", new_task_path %>
+<%= link_to new_task_path do %>
+ <div class="bouton"> <i class="fa fa-plus"></i> <div class="btn">Add a new task</div></div>
+<% end %>
+</div>
